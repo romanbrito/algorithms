@@ -35,7 +35,7 @@
 //   return arr
 // }
 
-function bubleSort(arr) {
+function bubbleSort(arr) {
   do {
 
     var swapped = false
@@ -56,4 +56,4 @@ function bubleSort(arr) {
 
   return arr
 }
-console.log(bubleSort([5, 2, 6, 1, 0,3,4,7]))
+console.log(bubbleSort([5, 2, 6, 1, 0,3,4,7]))
