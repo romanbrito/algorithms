@@ -22,8 +22,6 @@ function insertionSort(arr) {
       if ( arr[i] < arr[j] ) {
         var spliced = arr.splice(i,1)
         arr.splice( j, 0, spliced[0])
-        console.log(arr)
-        console.log(spliced)
       }
 
     }
@@ -34,4 +32,20 @@ function insertionSort(arr) {
 
 }
 
-console.log(insertionSort([5, 2, 6, 1, 0,3,4,7]))
+const insertionSortBook = A => {
+
+  for (let j = 1; j < A.length; j++) {
+    let key = A[j]
+    let i = j - 1
+    while ( i > -1 && A[i] > key )  {
+      A[i + 1] = A[i]
+      i = i - 1
+    }
+    A[i + 1] = key
+  }
+  return A
+}
+
+// console.log(insertionSort([5, 2, 4, 6, 1,3]))
+
+console.log(insertionSortBook([5, 2, 4, 6, 1,3]))

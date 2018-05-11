@@ -52,5 +52,59 @@ const merge = (left, right) => {
 
 }
 
+// merge sort book
+
+// merge sort
+
+const mergeBook = (left, right) => {
+
+  const arr = []
+
+  const length = left.length + right.length
+
+  let i = 0
+  let j = 0
+
+  for (let k = 0; k < length; k++) {
+
+    if (typeof left[i] === 'undefined') {
+      arr[k] = right[j]
+      j = j + 1
+    } else if (typeof right[j] === 'undefined') {
+      arr[k] = left[i]
+      i = i + 1
+    } else if ( left[i] <= right[j]) {
+      arr[k] = left[i]
+      i = i + 1
+    } else {
+      arr[k] = right[j]
+      j = j + 1
+    }
+
+  }
+
+
+  return arr
+
+}
+
+const mergeSortBook = A => {
+
+  if (A.length < 2) {
+    return A
+  }
+
+  const length = A.length
+  const middle = Math.floor(A.length/2)
+
+  const left = A.slice(0,middle)
+  const right = A.slice(middle, length)
+
+  return mergeBook(mergeSortBook(left), mergeSortBook(right))
+
+
+}
+
 
 console.log(mergeSort([5, 2, 6, 1, 0,3,4,7]))
+console.log(mergeSortBook([5, 2, 6, 1, 0,3,4,7]))
