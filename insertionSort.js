@@ -13,24 +13,24 @@
   And you put xdescribe instead of describe if you want to suspend running the unit tests.
 */
 
-function insertionSort(arr) {
-
-  for (var i = 1; i < arr.length; i++) {
-
-
-    for (var j = 0; j < i; j++) {
-      if ( arr[i] < arr[j] ) {
-        var spliced = arr.splice(i,1)
-        arr.splice( j, 0, spliced[0])
-      }
-
-    }
-    
-  }
-
-  return arr
-
-}
+// function insertionSort(arr) {
+//
+//   for (var i = 1; i < arr.length; i++) {
+//
+//
+//     for (var j = 0; j < i; j++) {
+//       if ( arr[i] < arr[j] ) {
+//         var spliced = arr.splice(i,1)
+//         arr.splice( j, 0, spliced[0])
+//       }
+//
+//     }
+//
+//   }
+//
+//   return arr
+//
+// }
 
 const insertionSortBook = A => {
 
@@ -45,6 +45,24 @@ const insertionSortBook = A => {
   }
   return A
 }
+
+
+var insert = function(array, rightIndex, value) {
+  for(var j = rightIndex;j >= 0 && array[j] > value;j--) {
+    array[j + 1] = array[j];
+  }
+  array[j + 1] = value;
+};
+
+var insertionSort = function(array) {
+  for(var i = 1;i < array.length; i++ ) {
+    insert(array,i-1,array[i] );
+  }
+  return array
+};
+
+var array = [22, 11, 99, 88, 9, 7, 42];
+console.log(insertionSort(array));
 
 // console.log(insertionSort([5, 2, 4, 6, 1,3]))
 
