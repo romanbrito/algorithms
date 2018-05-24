@@ -100,11 +100,33 @@ const mergeSortBook = A => {
   const left = A.slice(0,middle)
   const right = A.slice(middle, length)
 
-  return mergeBook(mergeSortBook(left), mergeSortBook(right))
+  const mergeSortLeft = mergeSortBook(left)
+  const mergeSortRight = mergeSortBook(right)
+
+  console.log('left ' + mergeSortLeft)
+  console.log('right ' + mergeSortRight)
+
+  return mergeBook(mergeSortLeft, mergeSortRight)
 
 
 }
 
 
 console.log(mergeSort([5, 2, 6, 1, 0,3,4,7]))
-console.log(mergeSortBook([5, 2, 6, 1, 0,3,4,7]))
+console.log(mergeSortBook([5, 2, 6, 1, 0,3,4,7,9]))
+
+// [5, 8, 1 , 2]
+// left => 5,8
+// right => 1,3
+// mergeSort [5,8] => left = 5 right 8
+// mergeSort [1,3] => left = 1 right 3
+//
+// 8 => right = [5, 8]
+// 1 => left = [1] return
+
+// 1, 2, fnRight ...
+//... pivot = 8
+// 5 => left = [5] return
+// [5, 8]
+
+// => 1,2,5,8

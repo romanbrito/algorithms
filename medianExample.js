@@ -8,7 +8,7 @@ const median = (left, right) => {
   let i = 0
   let j = 0
 
-  for (let k = 0; k < length; k++) {
+  for (let k = 0; k < length/2+1; k++) {
 
     if (left[i] <= right[j]) {
       A[k] = left[i]
