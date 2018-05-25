@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sierpinski</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        /*center canvas*/
+        #myCanvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <canvas id="myCanvas" width="450" height="450" style="border:1px solid #000000;">
+        Your browser does not support the canvas element.
+    </canvas>
+</div>
+
+<script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  var dim = 450;
+  var minSize = 8;
+  var drawGasket = function (x, y, dim) {
+    if (dim <= minSize) {
+      ctx.strokeRect(x, y, dim, dim);
+    } else {
+      var newDim = dim / 2;
+      drawGasket(x, y, newDim);
+      drawGasket(x + newDim, y, newDim);
+      drawGasket(x + newDim, y + newDim, newDim);
+    }
+  }
+
+  drawGasket(0, 0, dim);
+
+</script>
+
+</body>
+</html>
