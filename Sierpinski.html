@@ -33,7 +33,7 @@
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
   var dim = 450;
-  var minSize = 8;
+  var minSize = 122.5;
   var drawGasket = function (x, y, dim) {
     if (dim <= minSize) {
       ctx.strokeRect(x, y, dim, dim);
@@ -46,6 +46,21 @@
   }
 
   drawGasket(0, 0, dim);
+
+  // f(0,0,225)
+       //f(0,0,122.5)
+       //f(122.5,0,122.5)
+       //f(122.5,122.5,122.5)
+  // f(225,0,225)
+      //f(225,0,122.5)
+      //f(347.5,0,122.5)
+      //f(347.5,122.5,122.5)
+  // f(225,225,225)
+      //f(225,225,122.5)
+      //f(347.5,225,122.5)
+      //f(347.5,347.5,122.5)
+
+
 
 </script>
 
