@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        /*center canvas*/
+        #myCanvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <canvas id="myCanvas" width="450" height="450" style="border:1px solid #000000;">
+        Your browser does not support the canvas element.
+    </canvas>
+</div>
+
+<script src="fibonacci.js"></script>
+<script>
+
+
+
+
+  // 0 start Angle, 2*Math.PI end Angle in radians and counterClockwise, default false or Clockwise
+  // ctx.arc(50,50,50,0,2*Math.PI);
+  // ctx.stroke();
+
+  var drawShape = function(x, y, radius, rad1) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var rad2 = rad1+.5*Math.PI;
+    ctx.beginPath();
+    ctx.arc(x, y, fibonacci(radius),rad1,rad2);
+    ctx.stroke();
+
+    var newRadius = radius-1;
+    rad1 = rad1+.5*Math.PI;
+
+    if (newRadius >= 2) {
+
+      console.log(rad1/Math.PI%2);
+      if (rad1/Math.PI%2 > 1.49){
+        console.log(newRadius)
+        drawShape(x, y-fibonacci(newRadius-1), newRadius, rad1 );
+      }
+      else if (rad1/Math.PI%2 > 0.9) {
+        drawShape(x-fibonacci(newRadius-1), y, newRadius, rad1 );
+      }
+      else if (rad1/Math.PI%2 > 0.4) {
+        drawShape(x, y+fibonacci(newRadius-1), newRadius, rad1 );
+      }
+      else if (rad1/Math.PI%2 > -1) {
+        drawShape(x+fibonacci(newRadius-1), y, newRadius, rad1 );
+      }
+
+    }
+  };
+
+  var width = 450;
+  var height =450;
+  var rad1 = 1*Math.PI;
+  drawShape(width/2, height/2, 12, rad1);
+
+</script>
+
+</body>
+</html>
