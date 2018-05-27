@@ -50,9 +50,7 @@
 
     if (newRadius >= 2) {
 
-      console.log(rad1/Math.PI%2);
       if (rad1/Math.PI%2 > 1.49){
-        console.log(newRadius)
         drawShape(x, y-fibonacci(newRadius-1), newRadius, rad1 );
       }
       else if (rad1/Math.PI%2 > 0.9) {
